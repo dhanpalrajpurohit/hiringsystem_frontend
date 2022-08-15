@@ -4,11 +4,6 @@ import AppBar from '../components/layouts/AppBar';
 import Toolbar from '../components/layouts/Toolbar';
 import { makeStyles } from '@mui/styles';
 import logo from '../components/assets/images/logo.png';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
@@ -18,7 +13,13 @@ const useStyles = makeStyles({
     justifyContent:'space-between',
   },
   authmenu:{
-    background:'#fb246a'
+    background:'#fb246a',
+    margin:'5px',
+    color:'white',
+    "&:hover":{
+      color:'#fb246a',
+      backgroundColor:'white'
+    }
   }
   
 });
@@ -38,19 +39,18 @@ function AppAppBar() {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
                 <Button key={item}>
-                  {item}
-                </Button>
+                {item}
+              </Button>
               ))}
             </Box>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }} className={classes.authmenu}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {authMenu.map((item) => (
-                <Button key={item}>
+                <Button key={item} className={classes.authmenu}>
                   {item}
                 </Button>
               ))}
             </Box>
         </Toolbar>
-
       </AppBar>
       <Toolbar />
     </Container>
